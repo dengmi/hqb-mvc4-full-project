@@ -1,0 +1,144 @@
+/*
+[Contents]
+
+	0- Global
+	1- Links
+	2- Headings
+	3- Content(For tinymce)
+*/
+
+/* =0 Global
+---------------------------------------------------------------------------------------------------------------------*/
+body
+{
+    font: 12px/1.5 Arial, Helvetica, sans-serif;
+}
+.hide
+{
+    display: none;
+}
+.left
+{
+    float: left;
+}
+.right
+{
+    float: right;
+}
+.clear
+{
+    clear: both;
+}
+/* Clearfix */
+.clearfix:after
+{
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+.clearfix
+{
+    display: block;
+}
+/* for IE6 */
+* html .clearfix
+{
+    height: 1%;
+}
+/* for IE7 */
+* + html .clearfix
+{
+    zoom: 1 !important;
+}
+/* =1 Links
+---------------------------------------------------------------------------------------------------------------------*/
+a
+{
+    text-decoration: none;
+    color:#333;
+}
+a:hover
+{
+    text-decoration: none;
+    color:#666;
+}
+/*a.button
+{
+    background: url(images/button.png) repeat-x left top;
+    border: 1px solid #999;
+    color: #333 !important;
+    display: inline-block;
+    font-size: 11px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
+    text-decoration: none !important; /* Do Rounding */
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+a.button:hover
+{
+    background-position: left -20px;
+    border-color: #2E63A5 !important;
+    color: #FFF !important;
+}*/
+
+/* =2 Content(For Tinymce)
+---------------------------------------------------------------------------------------------------------------------*/
+.content h1:first-child, .content h2:first-child, .content h3:first-child, .content h4:first-child, .content h5:first-child, .content h6:first-child, .content p:first-child, .content ul:first-child, .content ol:first-child
+{
+    margin-top: 0;
+}
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6
+{
+    font-weight: bold;
+    margin: 13px 0;
+}
+.content h1
+{
+    font-size: 2em;
+}
+.content h2
+{
+    font-size: 1.5em;
+}
+.content h3
+{
+    font-size: 1.17em;
+}
+.content h4
+{
+    font-size: 1em;
+}
+.content h5
+{
+    font-size: 0.83em;
+}
+.content h6
+{
+    font-size: 0.75em;
+}
+.content p
+{
+    margin: 10px 0;
+}
+.content pre
+{
+    padding: 8px;
+}
+.content ol
+{
+    list-style: decimal outside;
+    margin: 10px 0;
+    padding-left: 40px;
+}
+.content ul
+{
+    list-style: disc outside;
+    margin: 10px 0;
+    padding-left: 40px;
+}

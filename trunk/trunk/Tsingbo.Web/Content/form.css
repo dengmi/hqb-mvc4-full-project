@@ -1,0 +1,25 @@
+/*
+[Contents]
+
+	0- Global
+	1- Common Form
+*/
+
+/* =0 Global
+---------------------------------------------------------------------------------------------------------------------*/
+
+/* =1 Common Form
+---------------------------------------------------------------------------------------------------------------------*/
+/* Watermark */
+.watermark
+{
+    position: relative;
+}
+.watermark label
+{
+    cursor: text;
+    position: absolute;
+    display: block;
+    top: 7px;
+    left: 5px;
+}

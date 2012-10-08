@@ -1,0 +1,82 @@
+﻿@model Models.HomeModel
+@{
+    Layout = null;
+    var top = Model.Articles.OrderByDescending(c => c.CreationDate).FirstOrDefault(c => c.IsTop);
+}
+<!DOCTYPE html>
+<html>
+<head>
+    @Styles.Render("~/Content/css")
+    <meta name="viewport" content="width=device-width" />
+    <title>首页</title>
+</head>
+<body>
+    <header>
+        @Html.Partial("Header")
+    </header>
+    <div id="body">
+        <section class="featured clearfix">
+            <section class="col21">
+                <div>
+                    <dl>
+                        <dt>一站式发布</dt>
+                        <dd><a href="#">供应</a></dd>
+                        <dd><a href="#">求购</a></dd>
+                        <dd><a href="#">优惠</a></dd>
+                        <dd><a href="#">节庆</a></dd>
+                        <dd><a href="#">展会</a></dd>
+                        <dd><a href="#">招商</a></dd>
+                        <dd><a href="#">人才</a></dd>
+                    </dl>
+                    <div class="wrapper">
+                        <div class="kuaixun clearfix">
+                            <h3>农吧快讯</h3>
+                            @if (top != null)
+                            {
+                                <img src="~/Uploads/Default.jpg" class="thumb" />
+                                <h2>@Html.ActionLink(top.Title.Summary(24), "Details", new { id = top.Id })</h2>
+                                <p>@top.Summary.Summary(20)</p>
+                            }
+                        </div>
+                        <ul>
+                            @foreach (var item in Model.Articles.OrderByDescending(c=>c.CreationDate))
+                            {
+                                <li>@Html.ActionLink(item.Title, "Details", new { id = item.Id })</li>
+                            }                            
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="col21">
+                <div>
+                    @foreach (var item in Model.Categories.ToList())
+                    {
+                        <div class="col21">
+                            <h2>@Html.ActionLink(item.Name, "Articles")</h2>
+                            @CategoryHelper.RenderChildren(item.Id, "list")
+                        </div>
+                    }
+                </div>
+            </section>
+        </section>
+        <section class="main-content clearfix">
+            <div id="main">
+            </div>
+            <aside id="sidebar">
+            </aside>
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>
+                    &copy; @DateTime.Now.Year - My ASP.NET MVC Application
+                </p>
+            </div>
+        </div>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/hqb.js" type="text/javascript"></script>
+</body>
+</html>

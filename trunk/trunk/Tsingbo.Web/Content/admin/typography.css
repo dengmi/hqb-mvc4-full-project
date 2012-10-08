@@ -1,0 +1,69 @@
+/*
+[Contents]
+
+	0- Global
+	1- Header
+	2- Main Container
+	3- Main
+	4- Sidebar
+	5- Footer
+*/
+
+/* =0 Global
+---------------------------------------------------------------------------------------------------------------------*/
+html
+{
+    background-color: #e2e2e2;
+}
+
+body
+{
+    background-color: #fff;
+    border-top: solid 10px #000;
+    color: #333;
+    font-size: .85em;
+    font-family: "Segoe UI" , Verdana, Helvetica, Sans-Serif;
+}
+
+header, footer, hgroup, nav, section
+{
+    display: block;
+}
+/* =1 Header
+---------------------------------------------------------------------------------------------------------------------*/
+
+/* =2 Main Container
+---------------------------------------------------------------------------------------------------------------------*/
+
+/* =3 Main
+---------------------------------------------------------------------------------------------------------------------*/
+
+#main > article > header
+{
+    background: url(images/command-bg.png) repeat-x;
+    border: 1px solid #DDD;
+    padding: 8px 5px;
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+}
+#main > article > section
+{
+    border: 1px solid #DDD;
+    padding: 8px 5px;
+    border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    -webkit-border-radius: 0 0 5px 5px;
+}
+ul.icons li
+{
+    display: inline-block;
+}
+/* =4 Sidebar
+---------------------------------------------------------------------------------------------------------------------*/
+#sidebar > div
+{
+    margin: 0px 10px;
+}
+/* =5 Footer
+---------------------------------------------------------------------------------------------------------------------*/

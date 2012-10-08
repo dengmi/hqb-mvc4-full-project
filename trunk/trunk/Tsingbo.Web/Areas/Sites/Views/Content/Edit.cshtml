@@ -1,0 +1,142 @@
+﻿@model Models.Article
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Article</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TypeId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TypeId)
+            @Html.ValidationMessageFor(model => model.TypeId)
+        </div>
+
+        @Html.HiddenFor(model => model.ArticleId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Summary)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Summary)
+            @Html.ValidationMessageFor(model => model.Summary)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Content)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Content)
+            @Html.ValidationMessageFor(model => model.Content)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReadCount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReadCount)
+            @Html.ValidationMessageFor(model => model.ReadCount)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OrderId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OrderId)
+            @Html.ValidationMessageFor(model => model.OrderId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreationDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreationDate)
+            @Html.ValidationMessageFor(model => model.CreationDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Lang)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Lang)
+            @Html.ValidationMessageFor(model => model.Lang)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AllowComment)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AllowComment)
+            @Html.ValidationMessageFor(model => model.AllowComment)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Published)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Published)
+            @Html.ValidationMessageFor(model => model.Published)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Favor)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Favor)
+            @Html.ValidationMessageFor(model => model.Favor)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsTop)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsTop)
+            @Html.ValidationMessageFor(model => model.IsTop)
+        </div>
+
+          <div class="editor-label">
+            @Html.LabelFor(model => model.CategoryId, "Category")
+        </div>
+        <div class="editor-field">
+           @CategoryHelper.RenderAllTreeCategories("CategoryId",Model.CategoryId)
+            @Html.ValidationMessageFor(model => model.CategoryId)
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+<section class="contact">
+    <header>
+        <h3>Phone</h3>
+    </header>
+    <p>
+        <span class="label">Main:</span>
+        <span>425.555.0100</span>
+    </p>
+    <p>
+        <span class="label">After Hours:</span>
+        <span>425.555.0199</span>
+    </p>
+</section>
+<section class="contact">
+    <header>
+        <h3>Email</h3>
+    </header>
+    <p>
+        <label class="label" for="Title">Title:</label>
+        <input type="text" id="Title" name="Title" value=" " />
+    </p>
+    <div>
+        <label class="label">Content:</label>
+       <textarea cols="80" rows="10" class="editor"></textarea>
+    </div>
+    <p>
+        <span class="label">General:</span>
+        <span><a href="mailto:General@example.com">General@example.com</a></span>
+    </p>
+</section>
+<section class="contact">
+    <header>
+        <h3>Address</h3>
+    </header>
+    <p>
+        One Microsoft Way<br />
+        Redmond, WA 98052-6399
+    </p>
+</section>
+@section scripts{
+    <script src="~/Scripts/plugins/editor/kindeditor-min.js" type="text/javascript"></script>
+    <script src="~/Scripts/plugins/editor/lang/zh_CN.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".editor").each(function () {
+                editor(this);
+            });
+        });
+        function editor(obj) {
+            var editor;
+            KindEditor.ready(function (K) {
+                editor = K.create(obj, {
+                    themesPath: "/Content/plugins/editor/",
+                    themeType: 'default',
+                    resizeType: 1,
+                    allowPreviewEmoticons: false,
+                    allowImageUpload: false,
+                    items: [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'link']
+                });
+            });
+        }
+    </script>
+}

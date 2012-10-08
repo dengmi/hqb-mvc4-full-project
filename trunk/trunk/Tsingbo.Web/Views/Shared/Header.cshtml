@@ -1,0 +1,27 @@
+﻿<table class="content-wrapper clearfix">
+    <tr>
+        <td>
+            <h1 class="left">@Html.ActionLink("your logo here", "Index", "Home")</h1>
+        </td>
+        <td>
+            <div class="quick-link clear">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+                <section class="search-form">
+                    @Html.Partial("Search")
+                </section>
+            </div>
+        </td>
+        <td>
+            <img src="http://placehold.it/200x120" alt="adv" />
+        </td>
+    </tr>
+</table>
+<nav class="nav content-wrapper clearfix">
+    <ul id="menu">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    </ul>
+</nav>

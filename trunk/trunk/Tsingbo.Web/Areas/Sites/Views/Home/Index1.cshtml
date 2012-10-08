@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link href="~/Content/base.css" rel="stylesheet" />
+    <link href="~/Content/layout.css" rel="stylesheet" />
+    <link href="~/Content/themes/default/operamasks-ui.min.css" rel="stylesheet" />   
+</head>
+<body>
+    <div id="header">
+    </div>
+    <div id="main-container">
+        <div id="main">
+            <div id="center-tab">
+                <ul>
+                    <li><a href="#tab1">3D盒子</a></li>
+                </ul>
+                <div id="tab1">
+                    <iframe id='3Dbox' border="0" frameborder='no' src='http://www.baidu.com/' width='100%'></iframe>
+                </div>
+            </div>
+        </div>
+        <div id="sidebar">
+            <ul id="navTree"></ul>
+        </div>
+    </div>
+    <div id="footer">
+        Copyright &copy; 2012 Tsingbo
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/operamasks-ui.min.js"></script>
+    <script src="~/Scripts/admin.js"></script>
+</body>
+</html>
