@@ -1,0 +1,61 @@
+﻿@model Models.Category
+@{
+    ViewBag.Title = "Create";
+}
+<h2>
+    Create</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Category</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ParentId)
+        </div>
+        <div class="editor-field">
+             @CategoryHelper.RenderAllTreeCategories("ParentId",0)
+            @Html.ValidationMessageFor(model => model.ParentId)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Published)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Published)
+            @Html.ValidationMessageFor(model => model.Published)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<select name="coderbolg">
+    <optgroup label="第一级">
+        <option value="1">一级子类一 </option>
+        <option value="2">一级子类二 </option>
+        <option value="3">一级子类三 </option>
+    </optgroup>
+    <optgroup label="第二级">
+        <option value="3">二级子类一 </option>
+        <option value="4">二级子类二 </option>
+        <option value="4">二级子类二 </option>
+        <option value="4">二级子类三 </option>
+    </optgroup>
+    <optgroup label="第三级">
+        <option value="4">三级子类三 </option>
+        <option value="3">三级子类一 </option>
+    </optgroup>
+</select>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

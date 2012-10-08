@@ -1,0 +1,44 @@
+﻿@using Models;
+@using Common.Services;
+@using System.Web.Mvc;
+@helper RenderTreeCategories(int currentId)
+{
+    var service = new CategoryServices();
+    var list = service.GetTreeList("ParentId", " ", "", currentId);
+    foreach (var item in list)
+    {
+    @item
+    }      
+}
+@helper RenderAllTreeCategories(string name, int selectedValue, bool allowNull = true)
+{
+    var isEdit = selectedValue != 0;
+    var service = new CategoryServices();
+    var list = new List<MvcHtmlString>();
+    list.Add(new MvcHtmlString(string.Format("<select id=\"{0}\" name=\"{0}\">", name)));
+    if (allowNull)
+    {
+        var first = new MvcHtmlString("<option value=\"\"></option>");
+        list.Add(first);
+    }
+
+    list = service.RenderAllTreeList(list, 0, selectedValue, 0, isEdit);
+    list.Add(new MvcHtmlString("</select>"));
+    foreach (var item in list)
+    {
+    @item
+    }   
+}
+
+@helper  RenderChildren(int parentId, string css)
+{
+    var service = new CategoryServices();
+    var list = service.GetChildren(parentId);
+    <ul@(string.IsNullOrEmpty(css) ? string.Empty : " class=" + css)>
+        @foreach (var item in list.Take(12))
+        {
+            <li><a href="@string.Format("/Home/Articles/{0}", item.Id)">@item.Name</a></li>
+        }
+    </ul>
+
+}

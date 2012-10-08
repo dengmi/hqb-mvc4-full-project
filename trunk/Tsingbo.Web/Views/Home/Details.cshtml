@@ -1,0 +1,141 @@
+﻿@model Models.Article
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Article</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TypeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TypeId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Summary)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Summary)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Content)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Content)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReadCount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReadCount)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OrderId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Like)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Like)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AllowComment)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AllowComment)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Favor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Favor)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsTop)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsTop)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CategoryId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CategoryId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UUID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UUID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CreationDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreationDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastModifiedDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastModifiedDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Lang)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Lang)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastModifiedUserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastModifiedUserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Published)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Published)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

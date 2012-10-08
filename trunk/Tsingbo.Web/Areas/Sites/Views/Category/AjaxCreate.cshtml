@@ -1,0 +1,41 @@
+﻿@model Models.Category
+@{
+    Layout = null;
+}
+@using (Ajax.BeginForm("/Sites/Category/AjaxCreate", new AjaxOptions { UpdateTargetId = "ajaxResult", HttpMethod = "POST", InsertionMode = InsertionMode.Replace }))  
+{
+    <fieldset>
+        <legend>Category</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ParentId)
+        </div>
+        <div class="editor-field">
+            @foreach (var item in ViewBag.Parent)
+            {
+                @item
+            }
+            @Html.ValidationMessageFor(model => model.ParentId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Published)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Published)
+            @Html.ValidationMessageFor(model => model.Published)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+<div id="ajaxResult"></div>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Models.Category>
+
+@*<div class="accordion">
+    @foreach (var item in Model)
+    {
+        <div>
+            <h3><a href="javascript:void(0);">@item.Name</a></h3>
+            <table class="tree" style="display: block;">
+                <tbody>
+                    @RenderTreeCategories(item.Id)
+                </tbody>
+            </table>
+        </div> 
+    }
+
+</div>*@
+<div class="st_tree">
+<ul>
+    <li><a href="#" ref="hyjm">欢迎界面</a></li>
+    <li><a href="#" ref="xtgl">系统管理</a></li>
+    <ul show="true">
+        <li><a href="#" ref="yhgl">用户管理</a></li>
+        <li><a href="#" ref="rzck">日志查看</a></li>
+    </ul>
+    <li><a href="#" ref="ckgl">仓库管理</a></li>
+    <ul>
+        <li><a href="#" ref="kcgl">库存管理</a></li>
+        <li><a href="#" ref="shgl">收货管理</a></li>
+        <li><a href="#" ref="fhgl">发货管理</a></li>
+        <ul>
+            <li><a href="#" ref="yhgl">用户管理</a></li>
+            <li><a href="#" ref="rzck">日志查看</a></li>
+        </ul>
+    </ul>
+</ul>
+    </div>
+@helper RenderTreeCategories(int parentId)
+{
+    var service = new Common.Services.CategoryServices();
+    var list = service.GetChildren(parentId);
+    if (parentId == 0)
+    {
+        list = service.Where(w => w.ParentId == null || w.ParentId == 0);
+    }
+    foreach (var item in list.ToList())
+    {
+    <tr id="node-@item.Id" @Html.Raw(item.ParentId != null ? " class=\"child-of-node-" + item.ParentId + "\"" : string.Empty)>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+    </tr>
+    @RenderTreeCategories(item.Id)
+    }
+}

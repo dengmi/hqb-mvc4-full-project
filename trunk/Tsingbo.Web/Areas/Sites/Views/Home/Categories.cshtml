@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Models.Category>
+
+<div class="st_tree">
+    <ul>
+        @foreach (var item in Model)
+        {        
+            <li><a href="javascript:void(0);">@item.Name</a></li>           
+            @RenderTreeCategories(item.Id)            
+        }      
+    </ul>
+</div>
+@helper RenderTreeCategories(int parentId)
+{
+    var service = new Common.Services.CategoryServices();
+    var list = service.GetChildren(parentId);
+    if (parentId == 0)
+    {
+        list = service.Where(w => w.ParentId == null || w.ParentId == 0);
+    }
+    if (list.Count() > 0)
+    {
+    <ul>
+        @foreach (var item in list.ToList())
+        {    
+            <li>
+                @Html.ActionLink(item.Name, "Index", "Content", new { id = item.Id, area = "Sites" }, null)
+            </li>
+   
+            @RenderTreeCategories(item.Id)
+        }
+    </ul>
+    } 
+}
